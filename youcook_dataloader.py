@@ -48,7 +48,7 @@ class Youcook_DataLoader(Dataset):
         return w
 
     def _words_to_we(self, words):
-        words = [word for word in words if word in self.we.vocab]
+        words = [word for word in words if word in self.we.key_to_index]
         if words:
             we = self._zero_pad_tensor(self.we[words], self.max_words)
             return th.from_numpy(we)
